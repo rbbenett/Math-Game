@@ -1,7 +1,7 @@
 class Turn
 
-  def initialize
-
+  def initialize(turn)
+    @turn = turn
   end
 
 end

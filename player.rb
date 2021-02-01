@@ -1,23 +1,29 @@
 class Player
+  attr_reader :name, :lives
 
-  def initialize(name, lives)
+  def initialize(name)
     @name = name
-    @lives = lives
+    @lives = 3
   end
 
-  def get_name
-    @name
+  def take_a_life
+    @lives -= 1
   end
 
-  def get_lives
-    @lives
+  def player_is_dead
+    @lives == 0
+  end
+
+  def new_question
+    new_question = Question.new
+    new_question.ask_question(name)
+    print '> '
+    @useranswer = $stdin.gets.chomp
+    if new_question.check_answer?(@useranswer.to_i)
+      puts 'Yes! You are correct.'
+    else
+      puts 'Seriously? No!'
+      take_a_life
+    end
   end
 end
-
-p1 = Player.new("Player 1", 3)
-p2 = Player.new("Player 2", 3)
-
-@p1Name = p1.get_name
-@p2Name = p2.get_name
-@p1Lives = p1.get_lives
-@p2Lives = p2.get_lives

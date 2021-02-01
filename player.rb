@@ -18,9 +18,9 @@ class Player
     new_question = Question.new
     new_question.ask_question(name)
     print '> '
-    @useranswer = $stdin.gets.chomp
-    if new_question.check_answer?(@useranswer.to_i)
-      puts 'Yes! You are correct.'
+    @guess = $stdin.gets.chomp
+    if new_question.check_answer?(@guess.to_i)
+      puts 'YES! You are correct.'
     else
       puts 'Seriously? No!'
       take_a_life

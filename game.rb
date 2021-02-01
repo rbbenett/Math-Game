@@ -6,11 +6,11 @@ class Game
   end
 
   def start
-    puts "New Game Started. Welcome #{@player_1.name} and #{@player_2.name}"
+    puts "A New Game Has Started!"
     turn
   end
 
-  def show_stats
+  def show_player_info
     puts "P1: #{@player_1.lives}/3 vs P2: #{@player_2.lives}/3"
   end
 
@@ -19,7 +19,7 @@ class Game
     check_score
     @player_2.new_question
     check_score
-    show_stats
+    show_player_info
     puts '-----NEW-TURN-----'
     turn
   end
